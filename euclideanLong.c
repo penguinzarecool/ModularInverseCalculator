@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-int Euclidean(int prime, int mod, int* counter) {
+int Euclidean(int prime, int mod, int* counter) {   //idek how to explain this, all you need to know is that it works, and it took a ton of math to get it this clean
 	int mult, math, m2;
 	*counter = *counter + 1;
 	if (mod % prime > 1) {
@@ -11,7 +11,7 @@ int Euclidean(int prime, int mod, int* counter) {
 	}
 	math = (mod - (mod % prime)) / prime;
 	m2 = (mult * (mod - (prime * math)) + 1) / prime;
-	return (mult * math) + m2;
+	return (mult * math) + m2;     //note that there is an essential computation performed during the print statements in main
 }
 int gcd(int a, int b) {
 	return b == 0 ? a : gcd(b, a % b);
@@ -34,7 +34,7 @@ int main(int argc, char* argv[]) {
 	*counter = 0;
 	int answer = Euclidean(alpha, mod, counter);
 	if (*counter % 2 == 1) {
-		printf("Your modular arithmetic inverse is: %d\n", mod - answer);
+		printf("Your modular arithmetic inverse is: %d\n", mod - answer);    //IMPORTANT!!! mod - answer is an ESSENTIAL part of the calculation ONLY IF counter is ODD
 	}
 	else {
 		printf("Your modular arithmetic inverse is: %d\n", answer);
